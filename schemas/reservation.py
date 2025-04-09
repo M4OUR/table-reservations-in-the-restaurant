@@ -3,8 +3,8 @@ from datetime import datetime
 from typing import Optional
 
 class ReservationCreate(BaseModel):
-    customer_name: str
-    table_id: int
+    customer_name: Optional[str]
+    table_id: Optional[int]
     reservation_time: datetime
     duration_minutes: int
     end_time: Optional[datetime]
@@ -14,3 +14,4 @@ class ReservationOut(ReservationCreate):
 
     class Config:
         orm_mode = True
+        from_attributes = True
